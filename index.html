@@ -2,8 +2,13 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
 <meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="format-detection" content="telephone=no">
+<meta name="theme-color" content="#050510">
 <title>SPACE WARRIORS - Edición Definitiva</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap');
@@ -60,20 +65,79 @@ body{font-family:'Orbitron',monospace;background:#050510;color:#fff;overflow:hid
 .mo{position:absolute;top:75px;left:50%;transform:translateX(-50%);background:rgba(0,255,0,.2);border:2px solid rgba(0,255,0,.5);border-radius:12px;padding:8px 16px;display:none;z-index:50;max-width:90%}
 .mo.sh{display:block}
 .mot{color:#00ff00;font-size:13px;text-align:center;text-transform:uppercase}
-.mc{position:absolute;bottom:18px;left:0;right:0;display:none;justify-content:space-between;padding:0 18px;z-index:100;pointer-events:none}
+.mc{position:absolute;bottom:20px;left:0;right:0;display:none;justify-content:space-between;padding:0 20px;z-index:100;pointer-events:none}
 .mc.sh{display:flex}
-.jc{position:relative;width:115px;height:115px;pointer-events:all}
-.jb{position:absolute;width:100%;height:100%;background:rgba(0,255,255,.2);border:2px solid rgba(0,255,255,.5);border-radius:50%}
-.jh{width:48px;height:48px;background:radial-gradient(circle,#00ffff,#0088ff);border:2px solid #fff;border-radius:50%;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);box-shadow:0 0 18px rgba(0,255,255,.8)}
-.ab{display:flex;flex-direction:column;gap:9px;pointer-events:all}
-.abtn{width:56px;height:56px;background:linear-gradient(135deg,rgba(255,0,255,.3),rgba(255,0,102,.3));border:2px solid rgba(255,0,255,.7);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;color:white;cursor:pointer;box-shadow:0 0 18px rgba(255,0,255,.5)}
-.abtn:active{transform:scale(.9);background:linear-gradient(135deg,rgba(255,0,255,.5),rgba(255,0,102,.5))}
-.sb{position:absolute;bottom:145px;right:18px;display:none;flex-direction:column;gap:9px;pointer-events:all}
+.jc{position:relative;width:130px;height:130px;pointer-events:all}
+.jb{position:absolute;width:100%;height:100%;background:radial-gradient(circle,rgba(0,255,255,0.15) 0%,rgba(0,255,255,0.05) 70%,transparent 100%);border:3px solid rgba(0,255,255,0.6);border-radius:50%;box-shadow:0 0 25px rgba(0,255,255,0.4),inset 0 0 40px rgba(0,255,255,0.1)}
+.jb::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:70%;height:70%;border:1px dashed rgba(0,255,255,0.3);border-radius:50%;animation:rotD 8s linear infinite}
+.jh{width:56px;height:56px;background:radial-gradient(circle at 30% 30%,#5ef7ff,#00d4ff,#0077aa);border:3px solid #fff;border-radius:50%;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);box-shadow:0 0 30px rgba(0,255,255,0.9),0 0 60px rgba(0,255,255,0.5),inset 0 -5px 15px rgba(0,100,150,0.5);transition:transform 0.1s}
+.jh::after{content:'';position:absolute;top:8px;left:8px;width:16px;height:16px;background:rgba(255,255,255,0.8);border-radius:50%;box-shadow:0 0 10px #fff}
+@keyframes rotD{from{transform:translate(-50%,-50%) rotate(0deg)}to{transform:translate(-50%,-50%) rotate(360deg)}}
+.ab{display:flex;flex-direction:column;gap:12px;pointer-events:all}
+.abtn{width:64px;height:64px;background:linear-gradient(145deg,rgba(255,0,255,0.4),rgba(180,0,180,0.3));border:3px solid rgba(255,0,255,0.8);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;color:white;cursor:pointer;box-shadow:0 0 25px rgba(255,0,255,0.6),0 0 50px rgba(255,0,255,0.3),inset 0 -3px 10px rgba(150,0,150,0.4);transition:all 0.15s;position:relative}
+.abtn::before{content:'';position:absolute;width:100%;height:100%;border-radius:50%;border:2px solid rgba(255,255,255,0.3);animation:btnP 2s ease-in-out infinite}
+@keyframes btnP{0%,100%{transform:scale(1);opacity:0.5}50%{transform:scale(1.1);opacity:0}}
+.abtn:active{transform:scale(0.92);background:linear-gradient(145deg,rgba(255,50,255,0.6),rgba(220,0,220,0.5));box-shadow:0 0 40px rgba(255,0,255,0.9)}
+.sb{position:absolute;bottom:160px;right:20px;display:none;flex-direction:column;gap:12px;pointer-events:all}
 .sb.sh{display:flex}
-.sbtn{width:46px;height:46px;background:linear-gradient(135deg,rgba(255,215,0,.3),rgba(255,140,0,.3));border:2px solid rgba(255,215,0,.7);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;color:white;cursor:pointer;box-shadow:0 0 18px rgba(255,215,0,.5)}
-.sbtn:active{transform:scale(.9)}
-@media(max-width:768px){.gh{padding:0 6px;top:4px}.hp{padding:3px 7px}.stb{width:30px;height:30px;font-size:15px;top:4px;right:4px}.ci{display:none}}
-@media(orientation:landscape)and(max-height:600px){.mc{bottom:8px;padding:0 8px}.jc{width:75px;height:75px}.jh{width:32px;height:32px}.abtn{width:42px;height:42px;font-size:18px}.sbtn{width:38px;height:38px;font-size:15px}}
+.sbtn{width:54px;height:54px;background:linear-gradient(145deg,rgba(255,200,0,0.4),rgba(200,120,0,0.3));border:3px solid rgba(255,215,0,0.8);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;color:white;cursor:pointer;box-shadow:0 0 25px rgba(255,215,0,0.6),0 0 50px rgba(255,215,0,0.3),inset 0 -3px 10px rgba(150,100,0,0.4);transition:all 0.15s;position:relative}
+.sbtn::before{content:'';position:absolute;width:100%;height:100%;border-radius:50%;border:2px solid rgba(255,255,255,0.2);animation:btnP 2.5s ease-in-out infinite}
+.sbtn:active{transform:scale(0.92);background:linear-gradient(145deg,rgba(255,220,50,0.6),rgba(255,180,0,0.5);box-shadow:0 0 40px rgba(255,215,0,0.9)}
+@media(max-width:768px){
+.gh{top:6px;gap:4px;padding:0 8px}
+.hp{padding:3px 6px;border:1px solid rgba(0,255,255,.4);backdrop-filter:blur(5px);min-width:55px}
+.hv{font-size:10px}
+.hl{font-size:5px}
+.hbc{width:60px;height:6px;border-width:1px}
+.hbf{border-radius:4px}
+.stb{width:28px;height:28px;font-size:14px;top:6px;right:6px;box-shadow:0 0 12px rgba(0,255,255,.5)}
+.ci{display:none}
+.mc{padding:0 10px;bottom:8px}
+.jc{width:100px;height:100px;filter:drop-shadow(0 0 8px rgba(0,255,255,0.3))}
+.jb{box-shadow:0 0 20px rgba(0,255,255,0.4),inset 0 0 30px rgba(0,255,255,0.1);border-width:2px}
+.jh{width:40px;height:40px;box-shadow:0 0 25px rgba(0,255,255,0.8),0 0 50px rgba(0,255,255,0.4)}
+.jh::after{width:12px;height:12px;top:5px;left:5px}
+.ab{gap:8px;filter:drop-shadow(0 0 6px rgba(255,0,255,0.4))}
+.abtn{width:52px;height:52px;font-size:20px;box-shadow:0 0 20px rgba(255,0,255,0.6),0 0 40px rgba(255,0,255,0.3);border-width:2px}
+.sb{bottom:130px;right:10px;gap:8px;filter:drop-shadow(0 0 6px rgba(255,215,0,0.4))}
+.sbtn{width:44px;height:44px;font-size:16px;box-shadow:0 0 20px rgba(255,215,0,0.6),0 0 40px rgba(255,215,0,0.3);border-width:2px}
+}
+@media(max-width:480px){
+.gh{padding:0 4px;gap:2px;top:4px}
+.hp{padding:2px 4px;border-radius:5px;min-width:45px}
+.hv{font-size:8px}
+.hl{font-size:4px}
+.hbc{width:45px;height:5px;border-width:1px}
+.stb{width:24px;height:24px;font-size:11px;top:4px;right:4px}
+.mc{padding:0 5px;bottom:5px}
+.jc{width:80px;height:80px}
+.jb{border-width:1px}
+.jh{width:32px;height:32px}
+.jh::after{width:8px;height:8px;top:4px;left:4px}
+.ab{gap:5px}
+.abtn{width:40px;height:40px;font-size:16px;border-width:2px}
+.sb{bottom:90px;right:5px;gap:5px}
+.sbtn{width:34px;height:34px;font-size:12px;border-width:2px}
+}
+@media(orientation:landscape)and(max-height:600px){
+.mc{bottom:6px;padding:0 6px}
+.jc{width:70px;height:70px}
+.jb{border-width:1px}
+.jh{width:28px;height:28px}
+.ab{gap:5px}
+.abtn{width:38px;height:38px;font-size:16px;border-width:1px}
+.sbtn{width:32px;height:32px;font-size:13px;border-width:1px}
+.sb{bottom:85px;right:6px;gap:5px}
+}
+@media(orientation:landscape)and(max-height:450px){
+.mc{bottom:4px;padding:0 4px}
+.jc{width:55px;height:55px}
+.jh{width:22px;height:22px}
+.ab{gap:4px}
+.abtn{width:32px;height:32px;font-size:14px}
+.sb{bottom:65px;right:4px;gap:4px}
+.sbtn{width:28px;height:28px;font-size:11px}
+}
 </style>
 </head>
 <body>
@@ -153,8 +217,24 @@ var isMob = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.tes
 var C = document.getElementById('gc');
 var X = C.getContext('2d');
 function resizeC() {
-    var mW = window.innerWidth - 30;
-    var mH = window.innerHeight - (isMob ? 250 : 185);
+    var mW = window.innerWidth - 20;
+    var isLandscape = window.innerWidth > window.innerHeight;
+    var isTiny = window.innerWidth <= 360 || window.innerHeight <= 550;
+    var topSpace = 45;
+    var bottomSpace = isMob ? 60 : 185;
+    if (isMob) {
+        if (isTiny) {
+            topSpace = 35;
+            bottomSpace = isLandscape ? 55 : 45;
+        } else if (isLandscape) {
+            topSpace = 40;
+            bottomSpace = window.innerHeight < 500 ? 60 : 70;
+        } else {
+            topSpace = 45;
+            bottomSpace = window.innerWidth <= 400 ? 50 : 55;
+        }
+    }
+    var mH = window.innerHeight - topSpace - bottomSpace;
     var r = 16 / 10;
     var w = Math.min(mW, 1200);
     var h = w / r;
@@ -163,12 +243,24 @@ function resizeC() {
     C.height = h;
 }
 resizeC();
-window.addEventListener('resize', resizeC);
+var resizeTimeout;
+window.addEventListener('resize', function() {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(resizeC, 100);
+});
 
 // Audio simple y seguro
 var AC = null;
 var soundOn = true;
-function initAudio() { if (!AC) { try { AC = new (window.AudioContext || window.webkitAudioContext)(); } catch(e) {} } }
+var audioInit = false;
+function initAudio() { 
+    if (audioInit) return;
+    audioInit = true;
+    try { 
+        AC = new (window.AudioContext || window.webkitAudioContext)();
+        if (AC && AC.state === 'suspended') AC.resume();
+    } catch(e) { AC = null; }
+}
 function beep(freq, freq2, dur, vol) {
     if (!soundOn || !AC) return;
     try {
@@ -586,6 +678,7 @@ function drawEnemy(e) {
 }
 
 function updateEnemy(e) {
+    if (!cfg) return;
     if (e.type==='asteroid') e.rot += e.rspd;
     if (e.type==='kamikaze' && PL) {
         var a = Math.atan2(PL.y-e.y, PL.x-e.x);
@@ -719,7 +812,7 @@ function handleInput() {
 // SPAWN
 function spawnEnemy() {
     var x = Math.random()*(C.width-70)+35;
-    if (!cfg) return;
+    if (!cfg || !cfg.types) return;
     var types = cfg.types;
     var type = types[Math.floor(Math.random()*types.length)];
     if (Math.random()<0.07 && level>2) enemies.push(makeEnemy(x,-35,'asteroid'));
@@ -836,6 +929,7 @@ function checkMission() {
 
 // COLISIONES
 function collisions() {
+    if (!PL) return;
     var i, j, e, b, p;
     // Balas jugador vs enemigos
     for (i=0;i<PL.bul.length;i++) {
@@ -959,13 +1053,22 @@ function drawWaveBar() {
 }
 
 // GAME LOOP
-function loop() {
+var lastTime = 0;
+var frameSkip = 0;
+function loop(timestamp) {
     if (!running) return;
+    
+    if (timestamp - lastTime < 16) {
+        if (frameSkip++ > 3) frameSkip = 0;
+        else { animId = requestAnimationFrame(loop); return; }
+    }
+    lastTime = timestamp;
 
     if (paused) {
-        drawBg(); drawPlayer();
+        drawBg();
+        if (PL) drawPlayer();
         for(var i=0;i<enemies.length;i++){drawEnemy(enemies[i]);for(var j=0;j<enemies[i].bul.length;j++)drawBullet(enemies[i].bul[j],false)}
-        for(var i=0;i<PL.bul.length;i++) drawBullet(PL.bul[i],true);
+        if (PL && PL.bul) for(var i=0;i<PL.bul.length;i++) drawBullet(PL.bul[i],true);
         X.save(); X.fillStyle='rgba(0,0,0,.5)'; X.fillRect(0,0,C.width,C.height);
         X.font='900 '+Math.min(42,C.width*0.06)+'px Orbitron'; X.fillStyle='#00ffff'; X.textAlign='center'; X.textBaseline='middle'; X.shadowBlur=22; X.shadowColor='#00ffff';
         X.fillText('PAUSA',C.width/2,C.height/2);
@@ -1001,8 +1104,10 @@ function loop() {
     else if (mode==='survival') { if(!doFreeze) manageSurv(); }
     else if (mode==='timeattack') { if(!doFreeze) manageTime(); }
 
-    updatePlayer();
-    drawPlayer();
+    if (PL) {
+        updatePlayer();
+        drawPlayer();
+    }
 
     // Laser
     if (doLaser && PL) {
@@ -1013,10 +1118,20 @@ function loop() {
 
     // Balas jugador
     var newBul = [];
-    for(var i=0;i<PL.bul.length;i++){var b=PL.bul[i]; if(!doFreeze) updateBullet(b); if(b.ok){drawBullet(b,true); newBul.push(b)}}
-    PL.bul = newBul;
+    if (PL && PL.bul) {
+        for(var i=0;i<PL.bul.length;i++){var b=PL.bul[i]; if(!doFreeze) updateBullet(b); if(b.ok){drawBullet(b,true); newBul.push(b)}}
+        PL.bul = newBul;
+    }
 
     // Misiles
+    if (!PL || !PL.mis) {
+        animId = requestAnimationFrame(loop);
+        checkAch(level,score,false);
+        X.restore();
+        lvlDone=false;
+        animId = requestAnimationFrame(loop);
+        return;
+    }
     for(var i=PL.mis.length-1;i>=0;i--){
         var m=PL.mis[i];
         m.life--;
@@ -1161,6 +1276,20 @@ document.getElementById('btnSound').addEventListener('click', function() { sound
 // Prevenir zoom movil
 document.addEventListener('gesturestart', function(e){e.preventDefault()});
 document.addEventListener('touchmove', function(e){if(e.scale!==1)e.preventDefault()},{passive:false});
+
+// Prevenir scrolling no deseado
+document.body.addEventListener('touchmove', function(e) {
+    if (e.target === C || e.target.closest('#gc, .mc, .sb, .ab')) return;
+    e.preventDefault();
+}, {passive:false});
+
+// Prevenir contexto menu en larga presion
+document.addEventListener('contextmenu', function(e){e.preventDefault()});
+
+// Manejar visibility change para pausar cuando se sale de la app
+document.addEventListener('visibilitychange', function() {
+    if (document.hidden && running && !paused) togglePause();
+});
 </script>
 </body>
 </html>
